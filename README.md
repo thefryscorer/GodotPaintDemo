@@ -1,5 +1,7 @@
 # Godot UV Painting Demo
 
+[Video](https://youtu.be/twAfBUUlGws)
+
 This is an example project to demonstrate how to get a UV co-ordinate from a point on a model, and the normal (both easily obtained from a ray cast).
 
 ## Requirements and limitations:
