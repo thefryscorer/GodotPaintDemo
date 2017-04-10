@@ -8,9 +8,8 @@ This is an example project to demonstrate how to get a UV co-ordinate from a poi
   - The mesh needs to have a collision shape that exactly matches the mesh, in order to compare the values from a raycast to the faces of the mesh. This can be done using primitive shaped meshes, or by using the Better Collada Exporter in Blender (and appending "-col" to the names of meshes you want to generate collision shapes for) and importing the scene into Godot.
   - The mesh also needs to be UV unwrapped, and have a fixed material with a diffuse texture (although it is also easy to create and apply the diffuse texture within a script).
   - The mesh should probably be triangulated. I haven't tested with one that isn't.
-  - If the brush transfer is large-ish and the UV layout contains many small faces that do not necessarily align with their position on the mesh, the brush transfer may go outside of the bounds of that face and appear on other parts of the mesh.
-  - At the moment this project just demonstrates the method for one mesh, but the method should work with many meshes.
-  - It's probably super not efficient because I am bad at math
+  - If the brush transfer is large-ish and the UV layout contains many small faces that do not necessarily align with their position on the mesh, the brush transfer may go outside of the bounds of that face and appear on other parts of the mesh. One way to work around this might be to use several ray casts to find points in a small circular area and use put_pixel instead of brush_transfer, but this would likely impact performance. Another would be to make sure the brush_transfer is only affecting faces that are close to the face hit by the ray cast. I'd also recommend UV unwrapping models in a way that would minimise overlapping, and place the seams somewhere mostly out of sight.
+  - At the moment this is hardcoded for just one mesh in the scene, it could be extended to work with multiple meshes though using the same technique.
 
 ## Basic idea:
 
